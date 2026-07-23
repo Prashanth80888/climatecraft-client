@@ -167,7 +167,7 @@
   });
 
   /* ---------- frame-sequence — Master GSAP Timeline ---------- */
-  function seqPath(n){return'../shared/media/seq/refine/frame-'+String(n).padStart(4,'0')+'.webp'}
+  function seqPath(n){return'shared/media/seq/refine/frame-'+String(n).padStart(4,'0')+'.webp'}
   function initSeq(cv){
     const total=parseInt(cv.dataset.frames||'300',10)
     const sec=cv.closest('.story-container') || cv.closest('[data-frameseq]')

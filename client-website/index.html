@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Climate Craft — Motion Furniture</title>
-<link rel="stylesheet" href="../shared/css/main.css">
+<link rel="stylesheet" href="shared/css/main.css">
 <style>
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:var(--ink)}
 .hero-bg{position:absolute;inset:0;z-index:0}
@@ -99,13 +99,13 @@ body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:
 </style>
 </head>
 <body data-page="home" class="boot-lock">
-<div id="preloader"><img src="../shared/media/logo.png" alt="Climate Craft" class="pl-logo"><div class="pl-text">Climate Craft</div></div>
+<div id="preloader"><img src="shared/media/logo.png" alt="Climate Craft" class="pl-logo"><div class="pl-text">Climate Craft</div></div>
 <div class="collbg fixed" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
 <div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
 <div id="progress"></div>
 
 <nav class="nav on-dark" data-hero-dark>
-  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <a href="index.html" class="brand"><img class="logo-img" src="shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
   <div class="navlinks">
     <a href="index.html" class="nlink">Home</a>
     <a href="collection.html" class="nlink">Collections</a>
@@ -131,8 +131,8 @@ body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg">
-    <img class="hero-poster" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg" alt="Climate Craft motorized recliner">
-    <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg"><source src="../shared/media/uploads/i_need_video_on_the_sofa_and_r.mp4" type="video/mp4"></video>
+    <img class="hero-poster" src="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg" alt="Climate Craft motorized recliner">
+    <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg"><source src="shared/media/uploads/i_need_video_on_the_sofa_and_r.mp4" type="video/mp4"></video>
   </div>
   <div class="hero-top"><span>Motion furniture Â· Est. 2009</span><span>Antwerp — Milan — New York</span></div>
   <div class="hero-in">
@@ -246,7 +246,7 @@ body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a href="index.html" class="brand mb-md" style="color:var(--bone)"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+        <a href="index.html" class="brand mb-md" style="color:var(--bone)"><img loading="lazy" class="logo-img" src="shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
         <p class="h2">Motion furniture, made to order.</p>
       </div>
       <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
@@ -261,12 +261,12 @@ body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 (async function(){
-  const IMG=t=>`../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${t}%20AM.jpeg`;
+  const IMG=t=>`shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${t}%20AM.jpeg`;
   
   try {
     const [prodRes, tstRes] = await Promise.all([
-      fetch('../shared/data/products.json'),
-      fetch('../shared/data/testimonials.json')
+      fetch('shared/data/products.json'),
+      fetch('shared/data/testimonials.json')
     ]);
     const categories = await prodRes.json();
     const tsts = await tstRes.json();
@@ -311,7 +311,7 @@ body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:
 
   // Load main.js dynamically after DOM is populated
   const script = document.createElement('script');
-  script.src = '../shared/js/main.js';
+  script.src = 'shared/js/main.js';
   document.body.appendChild(script);
 
   /* ---- hero video fade-in ---- */

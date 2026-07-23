@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore the Climate Craft collection of motorized, manual glide, and modular motion furniture.">
 <title>Collection — Climate Craft</title>
-<link rel="stylesheet" href="../shared/css/main.css">
+<link rel="stylesheet" href="shared/css/main.css">
 <style>
 .phead{padding:clamp(150px,20vh,220px) var(--edge) clamp(50px,7vh,90px);background:var(--paper)}
 .phead h1 em{color:var(--accent)}
@@ -53,7 +53,7 @@
 <div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
 
 <nav class="nav">
-  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <a href="index.html" class="brand"><img class="logo-img" src="shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
   <div class="navlinks">
     <a href="index.html" class="nlink">Home</a>
     <a href="collection.html" class="nlink">Collections</a>
@@ -90,9 +90,9 @@
       <p class="rv rv-d2 p-md" style="color:var(--txt-2);max-width:34ch">Three designs that define the house — each configurable and made to order.</p>
     </div>
     <div class="sig">
-      <a href="product.html" class="sigcard rv" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.28%20AM.jpeg" alt="Meridian" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Meridian</h3><span class="cat-lbl">Recliner sofa</span></div></a>
-      <a href="product.html" class="sigcard rv rv-d1" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge">Manual</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.46.04%20AM.jpeg" alt="Halcyon" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Halcyon</h3><span class="cat-lbl">Glide sofa</span></div></a>
-      <a href="product.html" class="sigcard rv rv-d2" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.49%20AM.jpeg" alt="Verge" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Verge</h3><span class="cat-lbl">Modular sectional</span></div></a>
+      <a href="product.html" class="sigcard rv" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.28%20AM.jpeg" alt="Meridian" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Meridian</h3><span class="cat-lbl">Recliner sofa</span></div></a>
+      <a href="product.html" class="sigcard rv rv-d1" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge">Manual</span><img src="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.46.04%20AM.jpeg" alt="Halcyon" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Halcyon</h3><span class="cat-lbl">Glide sofa</span></div></a>
+      <a href="product.html" class="sigcard rv rv-d2" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.49%20AM.jpeg" alt="Verge" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Verge</h3><span class="cat-lbl">Modular sectional</span></div></a>
     </div>
   </div>
 </section>
@@ -117,7 +117,7 @@
 <footer class="foot">
   <div class="wrap">
     <div class="fgrid">
-      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
       <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
       <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
       <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
@@ -126,7 +126,7 @@
   </div>
 </footer>
 
-<script src="../shared/js/main.js"></script>
+<script src="shared/js/main.js"></script>
 <script>
 const PRODUCTS=[
   {n:'Meridian',c:'Recliner sofa',op:'motorized',type:'sofa',img:'11.50.28',s:['3 seats','Dual motor','USB-C']},
@@ -153,7 +153,7 @@ function render(){
     el.style.transitionDelay=(Math.min(i,6)*0.05)+'s';
     el.innerHTML=`<div class="pimg imgrise"><span class="badge ${p.op==='motorized'?'pw':''}">${p.op==='motorized'?'Motorized':'Manual'}</span>
       <span class="quote-lnk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0e1210" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      <img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${p.img}%20AM.jpeg" alt="${p.n}" style="width:100%;height:100%;object-fit:cover"></div>
+      <img loading="lazy" src="shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${p.img}%20AM.jpeg" alt="${p.n}" style="width:100%;height:100%;object-fit:cover"></div>
       <div class="pmeta"><h3 class="h4">${p.n}</h3><span class="cat-lbl">${p.c}</span></div>
       <div class="pspec">${p.s.map(x=>`<span>${x}</span>`).join('')}</div>`;
     grid.appendChild(el);

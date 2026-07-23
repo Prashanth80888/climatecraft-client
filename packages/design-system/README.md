@@ -13,8 +13,8 @@ All design tokens (colors, fonts, spacing, breakpoints, easings) are defined onc
 
 ```html
 <!-- Both apps import from shared -->
-<link rel="stylesheet" href="../shared/css/main.css">
-<script src="../shared/config/index.js"></script>
+<link rel="stylesheet" href="shared/css/main.css">
+<script src="shared/config/index.js"></script>
 ```
 
 ## Contents

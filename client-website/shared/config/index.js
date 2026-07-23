@@ -6,9 +6,9 @@
 const CONFIG = {
   /* ---- Media ---- */
   media: {
-    base: '../shared/media/',
-    uploads: '../shared/media/uploads/',
-    logo: '../shared/media/logo.png',
+    base: 'shared/media/',
+    uploads: 'shared/media/uploads/',
+    logo: 'shared/media/logo.png',
   },
 
   /* ---- Theme (mirrors :root in shared/css/main.css) ---- */
