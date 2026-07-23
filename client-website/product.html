@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore the Meridian recliner by Climate Craft, featuring whisper-quiet dual-motor actuation and powered headrests.">
+<title>Meridian — Climate Craft</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+.crumb,.pd{position:relative;z-index:1}
+.pd-view{display:none;position:absolute;inset:0}
+.pd-view.on{display:block}
+.pd-view model-viewer{width:100%;height:100%}
+.pd-viewtoggle{display:flex;gap:8px;margin-top:2px}
+.vt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--line);border-radius:100px;cursor:none;background:transparent;color:var(--txt-2);transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.vt.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.vt .cd{width:7px;height:7px;border-radius:50%;background:var(--teal-300)}
+.crumb{padding:calc(clamp(110px,15vh,160px)) var(--edge) 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-2)}
+.crumb a{color:var(--txt-2)}.crumb a:hover{color:var(--accent)}
+/* hero split */
+.pd{display:grid;grid-template-columns:1fr;gap:0;padding:34px var(--edge) 0}
+@media(min-width:1000px){.pd{grid-template-columns:1.2fr .8fr;gap:60px;align-items:start}}
+.pd-gallery{display:flex;flex-direction:column;gap:16px}
+.pd-main{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--bone-2);position:relative}
+.pd-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pd-thumb{aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:var(--bone-2)}
+.pd-panel{position:sticky;top:100px}
+.hot{position:absolute;z-index:5;width:34px;height:34px;transform:translate(-50%,-50%);cursor:none}
+.hot .pulse{position:absolute;inset:0;border-radius:50%;border:1px solid var(--teal-300);animation:pulse 2.4s var(--ease-io) infinite;transition:box-shadow .3s var(--ease)}
+.hot:hover .pulse{box-shadow:0 0 18px 5px rgba(112,213,205,.55)}
+.hot .core{position:absolute;top:50%;left:50%;width:12px;height:12px;border-radius:50%;background:var(--teal-300);transform:translate(-50%,-50%);transition:transform .3s var(--ease)}
+.hot:hover .core{transform:translate(-50%,-50%) scale(1.5)}
+@keyframes pulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+.hot-tip{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px) scale(.96);background:var(--bone);color:var(--ink);padding:12px 16px;border-radius:8px;width:210px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);box-shadow:0 20px 40px rgba(0,0,0,.3);z-index:6}
+.hot:hover .hot-tip{opacity:1;transform:translateX(-50%) scale(1)}
+.pd-main:has(.hot:hover) .pd-photo img{transform:scale(1.02);filter:brightness(1.04) saturate(1.05)}
+.pd-photo img{transition:transform .5s var(--ease),filter .5s var(--ease)}
+.hot-tip .t{font-family:var(--serif);font-size:15px;margin-bottom:4px;display:block}
+.hot-tip .d{font-size:12.5px;color:var(--txt-2);line-height:1.5}
+.hot-hint{position:absolute;top:16px;left:16px;z-index:6;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);background:rgba(14,18,16,.6);padding:8px 13px;border-radius:100px;display:flex;align-items:center;gap:8px;pointer-events:none}
+.hot-hint .hd{width:7px;height:7px;border-radius:50%;background:var(--teal-300);animation:beat 1.8s var(--ease-io) infinite}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.5}}
+.pd-panel .tag2{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:inline-block;margin-bottom:16px}
+.divide{height:1px;background:var(--line);margin:28px 0}
+.field label{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-2);display:block;margin-bottom:12px}
+.field{margin-bottom:24px}
+.opt-row{display:flex;gap:10px;flex-wrap:wrap}
+.opt{font-family:var(--mono);font-size:12px;padding:11px 18px;border:1px solid var(--line);border-radius:100px;cursor:none;transition:all .3s;text-transform:uppercase;background:transparent}
+.opt.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.swatches{display:flex;gap:12px;flex-wrap:wrap}
+.sw{width:42px;height:42px;border-radius:50%;border:2px solid transparent;cursor:none;position:relative;transition:transform .3s var(--ease)}
+.sw::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--accent);opacity:0;transition:opacity .3s}
+.sw:hover{transform:scale(1.08)}.sw.on::after{opacity:1}
+.quote-box{background:var(--ink);color:var(--bone);border-radius:10px;padding:26px;margin-top:32px}
+.quote-box .qr{font-family:var(--mono);font-size:12px;color:var(--teal-300);letter-spacing:.06em;margin-bottom:14px}
+.quote-box h4{color:var(--bone);margin-bottom:8px}
+.quote-box p{color:var(--txt-inv-2);margin-bottom:24px}
+/* features */
+.feat{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+@media(min-width:960px){.feat{grid-template-columns:1fr 1fr}.feat.rev>:first-child{order:2}}
+.feat-img{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--ink-2)}
+.feat p{color:var(--txt-2);max-width:44ch}
+.dark .feat p{color:var(--txt-inv-2)}
+/* spec table */
+.spectbl{border-top:1px solid var(--line-inv)}
+.specrow{display:grid;grid-template-columns:1fr;gap:6px;padding:22px 0;border-bottom:1px solid var(--line-inv)}
+@media(min-width:700px){.specrow{grid-template-columns:280px 1fr;gap:40px}}
+.specrow .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-300)}
+.specrow .v{color:var(--bone);font-size:16px;line-height:1.5}
+.prods{display:grid;grid-template-columns:1fr;gap:44px 30px}
+@media(min-width:640px){.prods{grid-template-columns:repeat(3,1fr)}}
+.pcard{cursor:none}.pcard .pimg{aspect-ratio:1/1;background:var(--bone-2);border-radius:6px;overflow:hidden;margin-bottom:18px}
+.pcard .pimg>*{transition:transform 1s var(--ease)}.pcard:hover .pimg>*{transform:scale(1.05)}
+.pcard h3{font-size:22px}.pcard .cat-lbl{font-family:var(--mono);font-size:12px;color:var(--txt-2);letter-spacing:.06em;text-transform:uppercase}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+</style>
+</head>
+<body data-page="product">
+<div class="collbg fixed" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a><a href="collection.html">Collections</a><a href="features.html">Features</a><a href="projects.html">Projects</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<div class="crumb"><a href="index.html">Home</a> / <a href="collection.html">Collection</a> / <span style="color:var(--txt)">Meridian</span></div>
+
+<!-- HERO SPLIT -->
+<section class="pd">
+  <div class="pd-gallery">
+    <div class="pd-main imgrise in">
+      <div class="pd-view pd-photo on"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.28%20AM.jpeg" alt="Meridian recliner" style="width:100%;height:100%;object-fit:cover"><span class="hot-hint"><span class="hd"></span>Hover the points</span><div class="hot" style="top:34%;left:26%"><span class="pulse"></span><span class="core"></span><div class="hot-tip"><span class="t">Silent dual motor</span><span class="d">Whisper-quiet actuation reclines the backrest and extends the footrest independently.</span></div></div><div class="hot" style="top:60%;left:50%"><span class="pulse"></span><span class="core"></span><div class="hot-tip"><span class="t">Hand-tied suspension</span><span class="d">Eight-way hand-tied springs over a kiln-dried hardwood frame.</span></div></div><div class="hot" style="top:40%;left:76%"><span class="pulse"></span><span class="core"></span><div class="hot-tip"><span class="t">Powered headrest</span><span class="d">Articulating headrest with memory presets and USB-C charging.</span></div></div></div>
+      <div class="pd-view pd-3d"><span class="mv-badge"><span class="cd"></span>Drag to rotate</span><model-viewer src="../shared/media/uploads/sofa%203d%20model.glb" camera-controls auto-rotate touch-action="pan-y" exposure="1" shadow-intensity="1" ar reveal="auto" loading="eager" alt="Meridian 3D model"></model-viewer></div>
+    </div>
+    <div class="pd-viewtoggle"><button class="vt on" data-view="photo">Photo</button><button class="vt" data-view="3d"><span class="cd"></span>3D View</button></div>
+    <div class="pd-thumbs">
+      <div class="pd-thumb"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.36%20AM.jpeg" alt="Meridian detail view 1" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pd-thumb"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.30%20AM.jpeg" alt="Meridian detail view 2" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pd-thumb"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.52.00%20AM.jpeg" alt="Meridian detail view 3" style="width:100%;height:100%;object-fit:cover"></div>
+    </div>
+  </div>
+  <div class="pd-panel">
+    <span class="tag2">Motorized Â· Recliner sofa</span>
+    <h1 class="h1 lines mb-sm"><span class="ln"><span>Meridian</span></span></h1>
+    <p class="p-lg mb-md desc">A three-seat recliner built around a silent dual-motor mechanism, an eight-way hand-tied suspension and a powered articulating headrest. Made to order in Belgium.</p>
+    <div class="field">
+      <label>Operation</label>
+      <div class="opt-row" data-group="op"><button class="opt on">Motorized</button><button class="opt">Manual glide</button></div>
+    </div>
+    <div class="field">
+      <label>Upholstery</label>
+      <div class="swatches" data-group="sw">
+        <button class="sw on" aria-label="Sage bouclÃ©" data-c="#8a8f86" style="background:#8a8f86" data-cursor-label="Sage bouclÃ©"></button>
+        <button class="sw" aria-label="Amber velvet" data-c="#c8781f" style="background:#c8781f" data-cursor-label="Amber velvet"></button>
+        <button class="sw" aria-label="Forest weave" data-c="#3a4a48" style="background:#3a4a48" data-cursor-label="Forest weave"></button>
+        <button class="sw" aria-label="Camel linen" data-c="#b9a88f" style="background:#b9a88f" data-cursor-label="Camel linen"></button>
+        <button class="sw" aria-label="Slate mohair" data-c="#5a5560" style="background:#5a5560" data-cursor-label="Slate mohair"></button>
+        <button class="sw" aria-label="Ink bouclÃ©" data-c="#2a2d2b" style="background:#2a2d2b" data-cursor-label="Ink bouclÃ©"></button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Base finish</label>
+      <div class="opt-row" data-group="base"><button class="opt on">Blackened oak</button><button class="opt">Brushed brass</button><button class="opt">Matte steel</button></div>
+    </div>
+    <div class="quote-box">
+      <div class="qr" id="qr">MOTORIZED Â· SAGE BOUCLÃ‰ Â· BLACKENED OAK</div>
+      <h4 class="h4">Made to order</h4>
+      <p class="p-sm">We quote every piece against your specification and volume — no fixed pricing. Lead time 8â€“10 weeks.</p>
+      <a href="#quote" class="btn btn-solid-inv" style="width:100%;justify-content:center" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="eyebrow mb-xl rv">The engineering</div>
+    <div class="feat mb-xl">
+      <div class="feat-img imgrise rv"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.12%20AM.jpeg" alt="Mechanism" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="rv rv-d1"><h3 class="h3 mb-sm">A silent core</h3><p class="p-md" style="color:var(--txt-2)">Our dual-motor system is engineered in-house to move without a whir. Recline the backrest and extend the footrest independently, with zero perceptible mechanical noise.</p></div>
+    </div>
+    <div class="feat rev">
+      <div class="feat-img imgrise rv"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.24%20AM.jpeg" alt="Upholstery" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="rv rv-d1"><span class="mono mb-sm" style="font-size:12px;color:var(--accent);letter-spacing:.1em;display:block">02 / FRAME</span><h3 class="h3 mb-sm">Hand-tied over hardwood</h3><p class="p-md">An eight-way hand-tied spring suspension sits over a kiln-dried hardwood frame, layered with high-resilience foam and a feather-down wrap for a seat that holds its shape for decades.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC TABLE -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:520px">
+      <div class="eyebrow mb-md rv">Specification</div>
+      <h2 class="rv rv-d1 h2" style="color:var(--bone)">Meridian, in full.</h2>
+    </div>
+    <div class="spectbl">
+      <div class="specrow rv"><div class="k">Operation</div><div class="v">Dual-motor powered recline &amp; footrest, or manual glide</div></div>
+      <div class="specrow rv"><div class="k">Dimensions</div><div class="v">W 232 Ã— D 98 Ã— H 86 cm Â· seat height 46 cm</div></div>
+      <div class="specrow rv"><div class="k">Frame</div><div class="v">Kiln-dried hardwood, eight-way hand-tied suspension</div></div>
+      <div class="specrow rv"><div class="k">Fill</div><div class="v">High-resilience foam core, feather-down wrap</div></div>
+      <div class="specrow rv"><div class="k">Upholstery</div><div class="v">2000+ archive fabrics or customer's own material (COM)</div></div>
+      <div class="specrow rv"><div class="k">Base finish</div><div class="v">Blackened oak, brushed brass or matte steel</div></div>
+      <div class="specrow rv"><div class="k">Power</div><div class="v">Integrated USB-C, memory presets, low-voltage transformer</div></div>
+      <div class="specrow rv"><div class="k">Warranty</div><div class="v">10-year mechanism Â· lifetime frame (commercial)</div></div>
+      <div class="specrow rv"><div class="k">Lead time</div><div class="v">8â€“10 weeks standard Â· 12â€“14 bespoke</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="sec" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="mb-lg" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <h2 class="rv h2">You may also specify</h2>
+      <a href="collection.html" class="btn btn-line rv rv-d1" data-cursor-label="Browse">Full collection<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="prods">
+      <a href="product.html" class="pcard rv" data-cursor-label="View"><div class="pimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.46.04%20AM.jpeg" alt="Halcyon" style="width:100%;height:100%;object-fit:cover"></div><h3>Halcyon</h3><span class="cat-lbl">Manual glide sofa</span></a>
+      <a href="product.html" class="pcard rv rv-d1" data-cursor-label="View"><div class="pimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.49%20AM.jpeg" alt="Verge" style="width:100%;height:100%;object-fit:cover"></div><h3>Verge</h3><span class="cat-lbl">Motorized modular</span></a>
+      <a href="product.html" class="pcard rv rv-d2" data-cursor-label="View"><div class="pimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.07%20AM.jpeg" alt="Atlas" style="width:100%;height:100%;object-fit:cover"></div><h3>Atlas</h3><span class="cat-lbl">Manual lounge chair</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec dark" id="quote" style="text-align:center">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center;margin-bottom:30px">Made to order</div>
+    <h2 class="rv rv-d1" style="font-size:clamp(38px,6vw,96px);color:var(--bone);line-height:.96">Request a quote for<br>the Meridian.</h2>
+    <p class="rv rv-d2" style="color:var(--txt-inv-2);max-width:48ch;margin:30px auto 0;font-size:17px;line-height:1.6">Send your specification and volume. We'll return a tailored quote and lead time within two business days.</p>
+    <div class="rv rv-d3 mt-lg" style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-solid-inv" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="collection.html" class="btn btn-line">Back to collection</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="../shared/js/main.js"></script>
+<script>
+(function(){
+  const main=document.querySelector('.pd-main'),qr=document.getElementById('qr');
+  document.querySelectorAll('.vt').forEach(b=>b.onclick=()=>{document.querySelectorAll('.vt').forEach(x=>x.classList.remove('on'));b.classList.add('on');const v=b.dataset.view;document.querySelector('.pd-photo').classList.toggle('on',v==='photo');document.querySelector('.pd-3d').classList.toggle('on',v==='3d');});
+  let op='MOTORIZED',fab='SAGE BOUCLÃ‰',base='BLACKENED OAK';
+  const upd=()=>qr.textContent=`${op} Â· ${fab} Â· ${base}`;
+  document.querySelectorAll('[data-group="op"] .opt').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-group="op"] .opt').forEach(x=>x.classList.remove('on'));b.classList.add('on');op=b.textContent.toUpperCase();upd();});
+  document.querySelectorAll('[data-group="base"] .opt').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-group="base"] .opt').forEach(x=>x.classList.remove('on'));b.classList.add('on');base=b.textContent.toUpperCase();upd();});
+  document.querySelectorAll('[data-group="sw"] .sw').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-group="sw"] .sw').forEach(x=>x.classList.remove('on'));b.classList.add('on');fab=b.getAttribute('data-cursor-label').toUpperCase();main.style.boxShadow=`inset 0 0 0 9999px ${b.dataset.c}22`;upd();});
+})();
+</script>
+</body>
+</html>

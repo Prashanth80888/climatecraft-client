@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Discover the engineering and craftsmanship behind Climate Craft's motion furniture mechanisms and premium upholstery.">
+<title>Features — Climate Craft</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<style>
+.phead{padding:clamp(150px,20vh,220px) var(--edge) clamp(40px,6vh,70px);background:var(--paper)}
+.phead h1 em{color:var(--accent)}
+.phead p{max-width:52ch;color:var(--txt-2);margin-top:34px}
+/* hotspot explorer */
+.hx{background:var(--ink);color:var(--bone);padding:clamp(50px,8vh,110px) var(--edge)}
+.hx-grid{display:grid;grid-template-columns:1fr;gap:34px;max-width:1440px;margin:0 auto}
+@media(min-width:1000px){.hx-grid{grid-template-columns:1.35fr .9fr;gap:56px;align-items:start}}
+.hx-stage{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--ink-2);box-shadow:var(--sh-lg)}
+.hx-stage>img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.hx-stage.zoom>img{transform:scale(1.06)}
+.hx-hint{position:absolute;top:16px;left:16px;z-index:6;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);background:rgba(14,18,16,.55);padding:8px 13px;border-radius:100px;display:flex;align-items:center;gap:8px;pointer-events:none}
+.hx-hint .hd{width:7px;height:7px;border-radius:50%;background:var(--teal-300);animation:beat 1.8s var(--ease-io) infinite}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.5}}
+.hspot{position:absolute;z-index:5;width:38px;height:38px;transform:translate(-50%,-50%);cursor:none;border:none;background:none;padding:0}
+.hspot .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--teal-300);animation:pulse 2.4s var(--ease-io) infinite;transition:box-shadow .3s var(--ease)}
+.hspot:hover .ring,.hspot.on .ring{box-shadow:0 0 18px 5px rgba(112,213,205,.5)}
+.hspot .core{position:absolute;top:50%;left:50%;width:13px;height:13px;border-radius:50%;background:var(--teal-300);transform:translate(-50%,-50%);transition:transform .3s var(--ease),background .3s var(--ease);box-shadow:0 0 0 4px rgba(112,213,205,.18)}
+.hspot:hover .core,.hspot.on .core{transform:translate(-50%,-50%) scale(1.5);background:var(--amber-300)}
+@keyframes pulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2);opacity:0}}
+.hspot .lbl{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--bone);padding:5px 10px;border-radius:100px;opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);pointer-events:none}
+.hspot:hover .lbl,.hspot.on .lbl{opacity:1;transform:translateX(-50%) translateY(2px)}
+.hx-marker{position:absolute;z-index:3;border:2px solid var(--amber-300);border-radius:10px;opacity:0;transition:all .5s var(--ease);pointer-events:none;box-shadow:0 0 0 9999px rgba(9,12,11,.32)}
+.hx-marker.on{opacity:1}
+/* detail panel */
+.hx-panel{position:sticky;top:96px}
+.hx-detail{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--ink-2);position:relative;margin-bottom:26px}
+.hx-detail img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .6s var(--ease),transform 1.4s var(--ease)}
+.hx-detail img.on{opacity:1;transform:scale(1)}
+.hx-num{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--teal-300);text-transform:uppercase}
+.hx-title{color:var(--bone);margin:14px 0 16px;transition:opacity .4s var(--ease)}
+.hx-desc{color:var(--txt-inv-2);max-width:44ch;transition:opacity .4s var(--ease)}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hx-chip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--line-inv);border-radius:100px;color:var(--txt-inv-2);cursor:none;background:transparent;transition:all .3s var(--ease)}
+.hx-chip:hover,.hx-chip.on{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+/* feature strips */
+.fstrips{border-top:1px solid var(--line)}
+.fstrip{display:grid;grid-template-columns:1fr;gap:14px;padding:40px 0;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease)}
+@media(min-width:820px){.fstrip{grid-template-columns:80px 260px 1fr;gap:44px;align-items:baseline}.fstrip:hover{padding-left:20px}}
+.fstrip .fn{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.1em}
+.fstrip h3{font-weight:400}
+.fstrip p{color:var(--txt-2);max-width:56ch}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+</style>
+</head>
+<body data-page="features">
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a><a href="collection.html">Collections</a><a href="features.html">Features</a><a href="projects.html">Projects</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<header class="phead">
+  <div class="collbg" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+  <div class="wrap">
+    <div class="eyebrow mb-md rv">Anatomy of a piece</div>
+    <h1 class="h1 lines"><span class="ln"><span>Every <em>detail,</em></span></span><span class="ln"><span>explored.</span></span></h1>
+    <p class="rv rv-d2 p-lg">Hover any point on the piece to inspect the material, mechanism and hand-work that goes into it. Eight things we obsess over, up close.</p>
+  </div>
+</header>
+
+<!-- HOTSPOT EXPLORER -->
+<section class="hx">
+  <div class="hx-grid">
+    <div class="hx-stage" id="stage">
+      <img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.30%20AM.jpeg" alt="Feature explorer" id="stageImg">
+      <span class="hx-hint"><span class="hd"></span>Hover the points</span>
+      <div class="hx-marker" id="marker"></div>
+      <!-- hotspots injected -->
+    </div>
+    <div class="hx-panel">
+      <div class="hx-detail" id="detail"></div>
+      <div class="hx-num" id="dNum">01 / Fabric</div>
+      <h2 class="hx-title h2" id="dTitle">Archive fabric</h2>
+      <p class="hx-desc p-md" id="dDesc">Choose from over two thousand digitised bouclÃ©, velvet, mohair and performance weaves — colour-matched on screen before a metre is cut.</p>
+      <div class="hx-chips" id="chips"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIPS -->
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="eyebrow mb-xl rv">The full specification</div>
+    <div class="fstrips" id="strips"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec dark" style="text-align:center">
+  <div class="wrap">
+    <div class="eyebrow mb-md rv" style="justify-content:center">See it in person</div>
+    <h2 class="rv rv-d1 h1" style="color:var(--bone)">Specify your<br>own <em style="font-style:italic;color:var(--amber-300)">piece.</em></h2>
+    <div class="rv rv-d2 mt-lg" style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-solid-inv" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="collection.html" class="btn btn-line">View the collection</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="../shared/js/main.js"></script>
+<script>
+(function(){
+  const IMG=t=>`../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${t}%20AM.jpeg`;
+  const F=[
+    {name:'Fabric',title:'Archive fabric',img:'11.47.24',x:30,y:44,mx:12,my:28,mw:38,mh:40,d:'Choose from over two thousand digitised bouclÃ©, velvet, mohair and performance weaves — colour-matched on screen before a metre is cut.'},
+    {name:'Material',title:'Upholstery material',img:'11.46.04',x:52,y:36,mx:34,my:20,mw:40,mh:36,d:'Full-grain leathers, dyed linens and performance textiles, each tested for abrasion, colour-fastness and drape before production.'},
+    {name:'Seat Comfort',title:'Seat comfort',img:'11.51.47',x:44,y:66,mx:24,my:52,mw:46,mh:34,d:'A layered high-resilience foam core wrapped in feather-down, tuned per model so the seat holds its shape for decades.'},
+    {name:'Leg Material',title:'Leg & base material',img:'11.48.37',x:24,y:84,mx:8,my:74,mw:30,mh:22,d:'Solid blackened oak, brushed brass or matte steel bases — CNC-cut, hand-finished and levelled to the millimetre.'},
+    {name:'Frame',title:'Hardwood frame',img:'11.50.36',x:70,y:56,mx:54,my:40,mw:40,mh:40,d:'A kiln-dried hardwood frame over eight-way hand-tied suspension — the skeleton every mechanism is built around.'},
+    {name:'Foam',title:'Foam & fill',img:'11.52.00',x:60,y:50,mx:44,my:34,mw:38,mh:34,d:'Multi-density CertiPUR foam profiled by zone: firmer under the thighs, softer at the lumbar, consistent across every unit.'},
+    {name:'Premium Finish',title:'Premium finish',img:'11.46.57',x:38,y:24,mx:20,my:10,mw:40,mh:32,d:'Piping, welts and edge detailing finished by hand — the small signals of a piece built without shortcuts.'},
+    {name:'Stitching',title:'Hand stitching',img:'11.47.49',x:66,y:30,mx:48,my:16,mw:40,mh:32,d:'Double-needle topstitch and channel work sewn by a single upholsterer per piece, who signs the finished work.'},
+  ];
+  const stage=document.getElementById('stage'),marker=document.getElementById('marker'),detail=document.getElementById('detail');
+  const dNum=document.getElementById('dNum'),dTitle=document.getElementById('dTitle'),dDesc=document.getElementById('dDesc'),chips=document.getElementById('chips');
+  // preload detail images into layered <img>
+  F.forEach((f,i)=>{const im=document.createElement('img');im.src=IMG(f.img);im.alt=f.title;im.dataset.i=i;detail.appendChild(im);if(i===0)im.classList.add('on');});
+  const dImgs=[...detail.children];
+  // hotspots
+  F.forEach((f,i)=>{
+    const b=document.createElement('button');b.className='hspot'+(i===0?' on':'');b.style.left=f.x+'%';b.style.top=f.y+'%';b.setAttribute('aria-label',f.name);
+    b.innerHTML=`<span class="ring"></span><span class="core"></span><span class="lbl">${f.name}</span>`;
+    b.addEventListener('mouseenter',()=>select(i));
+    b.addEventListener('focus',()=>select(i));
+    b.addEventListener('click',()=>select(i));
+    stage.appendChild(b);
+  });
+  const spots=[...stage.querySelectorAll('.hspot')];
+  // chips
+  F.forEach((f,i)=>{const c=document.createElement('button');c.className='hx-chip'+(i===0?' on':'');c.textContent=f.name;c.onclick=()=>select(i);chips.appendChild(c);});
+  const chipEls=[...chips.children];
+  function select(i){
+    const f=F[i];
+    spots.forEach((s,j)=>s.classList.toggle('on',j===i));
+    chipEls.forEach((c,j)=>c.classList.toggle('on',j===i));
+    dImgs.forEach((im,j)=>im.classList.toggle('on',j===i));
+    dNum.textContent=String(i+1).padStart(2,'0')+' / '+f.name;
+    dTitle.style.opacity=0;dDesc.style.opacity=0;
+    setTimeout(()=>{dTitle.textContent=f.title;dDesc.textContent=f.d;dTitle.style.opacity=1;dDesc.style.opacity=1;},180);
+    marker.style.left=f.mx+'%';marker.style.top=f.my+'%';marker.style.width=f.mw+'%';marker.style.height=f.mh+'%';
+    marker.classList.add('on');stage.classList.add('zoom');
+  }
+  stage.addEventListener('mouseleave',()=>{marker.classList.remove('on');stage.classList.remove('zoom');});
+  // feature strips
+  const strips=document.getElementById('strips');
+  strips.innerHTML=F.map((f,i)=>`<div class="fstrip rv"><span class="fn">${String(i+1).padStart(2,'0')}</span><h3 class="h3">${f.title}</h3><p class="p-md">${f.d}</p></div>`).join('');
+  document.querySelectorAll('.fstrip.rv').forEach(el=>el.classList.add('in'));
+})();
+</script>
+</body>
+</html>

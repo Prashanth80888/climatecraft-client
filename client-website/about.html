@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Learn about Climate Craft's atelier, our process, and our commitment to building the world's quietest motion furniture.">
+<title>Atelier — Climate Craft</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<style>
+.ahero{position:relative;height:88vh;min-height:620px;overflow:hidden;background:var(--ink);display:flex;align-items:flex-end}
+.ahero-bg{position:absolute;inset:-8% 0;z-index:0}
+.ahero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,16,.5),rgba(14,18,16,.35)45%,rgba(14,18,16,.8));z-index:2}
+.ahero-in{position:relative;z-index:3;padding:0 var(--edge) clamp(50px,8vh,90px);width:100%}
+.ahero h1 em{color:var(--amber-300)}
+.split{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+@media(min-width:960px){.split{grid-template-columns:1fr 1fr;align-items:start}.split.rev>:first-child{order:2}}
+.split-img{aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--bone-2)}
+.split h3{margin-bottom:18px}
+.split p{color:var(--txt-2);max-width:44ch;margin-bottom:16px}
+.dark .split p{color:var(--txt-inv-2)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-inv);border:1px solid var(--line-inv)}
+@media(min-width:820px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--ink);padding:44px 30px}
+.stat .n{font-family:var(--serif);font-size:clamp(38px,5vw,68px);font-weight:500;color:var(--amber-300);line-height:1}
+.stat .l{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--txt-inv-2);margin-top:14px;line-height:1.5;text-transform:uppercase}
+/* timeline */
+.tl{border-top:1px solid var(--line)}
+.tlrow{display:grid;grid-template-columns:1fr;gap:14px;padding:38px 0;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease)}
+@media(min-width:800px){.tlrow{grid-template-columns:160px 1fr;gap:50px;align-items:start}.tlrow:hover{padding-left:20px}}
+.tlrow .yr{font-family:var(--mono);font-size:15px;color:var(--accent);letter-spacing:.06em}
+.tlrow h3{margin-bottom:10px}
+.tlrow p{color:var(--txt-2);max-width:60ch}
+.values{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line-inv)}
+@media(min-width:760px){.values{grid-template-columns:repeat(3,1fr)}}
+.val{padding:40px 34px 40px 0;border-bottom:1px solid var(--line-inv)}
+@media(min-width:760px){.val{border-bottom:none;padding:0 40px;border-right:1px solid var(--line-inv)}.val:last-child{border-right:none}}
+.val .num{font-family:var(--mono);font-size:12px;color:var(--teal-300);letter-spacing:.1em}
+.val h3{color:var(--bone);margin:16px 0 12px}
+.val p{color:var(--txt-inv-2)}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+/* process */
+.steps{border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:1fr;gap:14px;padding:40px 0;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease)}
+@media(min-width:800px){.step{grid-template-columns:120px 1fr 1.1fr;gap:40px;align-items:start}.step:hover{padding-left:24px}}
+.step .sn{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.1em}
+.step p{color:var(--txt-2)}
+/* cases */
+.cases{display:flex;gap:26px;overflow-x:auto;padding:0 var(--edge) 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.cases::-webkit-scrollbar{height:0}
+.ccard{flex:none;width:min(78vw,560px);scroll-snap-align:start}
+.ccard .cimg{aspect-ratio:16/11;border-radius:6px;overflow:hidden;background:var(--ink-2);margin-bottom:22px;position:relative}
+.ccard h3{color:var(--bone);margin-bottom:10px}
+.ccard p{color:var(--txt-inv-2);max-width:46ch}
+.ccard .ck{font-family:var(--mono);font-size:12px;color:var(--teal-300);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+/* team */
+.team{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-inv);border:1px solid var(--line-inv)}
+@media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.team{grid-template-columns:repeat(4,1fr)}}
+.tm{background:var(--ink);padding:34px 28px}
+.tm-mono{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:21px;background:linear-gradient(140deg,var(--teal-500),var(--teal-700));color:var(--bone);margin-bottom:22px}
+.tm-n{color:var(--bone);margin-bottom:4px}
+.tm-r{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-300);margin:7px 0 16px}
+.tm p{color:var(--txt-inv-2)}
+/* faq */
+.faq{border-top:1px solid var(--line);max-width:940px}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;text-align:left;background:none;border:none;padding:30px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:none;font-family:var(--serif);font-size:clamp(19px,2.3vw,27px);color:var(--txt);font-weight:400}
+.qa .qi{flex:none;width:24px;height:24px;position:relative;transition:transform .4s var(--ease)}
+.qa .qi::before,.qa .qi::after{content:"";position:absolute;background:var(--accent);border-radius:2px}
+.qa .qi::before{top:11px;left:0;right:0;height:2px}
+.qa .qi::after{left:11px;top:0;bottom:0;width:2px;transition:transform .4s var(--ease)}
+.qa.open .qi::after{transform:scaleY(0)}
+.qa .qbody{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.qa .qbody p{padding-bottom:30px;color:var(--txt-2);max-width:70ch}
+</style>
+</head>
+<body data-page="about">
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+
+<nav class="nav on-dark" data-hero-dark>
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a><a href="collection.html">Collections</a><a href="features.html">Features</a><a href="projects.html">Projects</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<header class="ahero">
+  <div class="ahero-bg" data-parallax="0.12"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.48.29%20AM.jpeg" alt="The workshop" style="width:100%;height:116%;object-fit:cover"></div>
+  <div class="ahero-in">
+    <div class="eyebrow mb-md rv" style="color:var(--teal-300)">The atelier Â· Antwerp</div>
+    <h1 class="h1 lines"><span class="ln"><span>Makers of</span></span><span class="ln"><span><em>motion.</em></span></span></h1>
+  </div>
+</header>
+
+<section class="sec" style="background:var(--paper);position:relative;overflow:hidden">
+  <div class="collbg" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <p class="h2 lines"><span class="ln"><span>Since 2009 we've built seating</span></span><span class="ln"><span>around a single idea: that a piece</span></span><span class="ln"><span>should <em>move</em> as beautifully</span></span><span class="ln"><span>as it sits still.</span></span></p>
+  </div>
+</section>
+
+<section class="dark" style="padding:clamp(60px,9vh,110px) var(--edge)">
+  <div class="wrap"><div class="stats">
+    <div class="stat rv"><div class="n"><span data-count="17">0</span></div><div class="l">years of<br>engineering</div></div>
+    <div class="stat rv rv-d1"><div class="n"><span data-count="2000">0</span>+</div><div class="l">archive<br>fabrics</div></div>
+    <div class="stat rv rv-d2"><div class="n"><span data-count="40">0</span></div><div class="l">countries<br>shipped to</div></div>
+    <div class="stat rv rv-d3"><div class="n"><span data-count="1">0</span></div><div class="l">maker per<br>finished piece</div></div>
+  </div></div>
+</section>
+
+<section class="sec" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="split mb-xl">
+      <div class="split-img imgrise rv" data-parallax="0.05"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.52%20AM.jpeg" alt="Fabric inspection" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="rv rv-d1"><div class="eyebrow mb-md">Our origin</div><h3 class="h3">A mechanism, then a chair</h3><p class="p-md">Climate Craft began in a small Antwerp workshop repairing the motion mechanisms other makers couldn't. We learned that the mechanism — not the fabric — is what fails first, and what a piece lives or dies by.</p><p class="p-md">So we build the other way around: the motor and the glide come first, tested to 30,000 cycles, and the frame and upholstery are built to honour them.</p></div>
+    </div>
+    <div class="split rev">
+      <div class="split-img imgrise" data-parallax="0.08"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.24%20AM.jpeg" alt="Archive fabric swatch library" style="width:100%;height:116%;object-fit:cover"></div>
+      <div class="rv rv-d1"><div class="eyebrow mb-md">The archive</div><h3 class="h3">Two thousand fabrics, digitised</h3><p class="p-md">Our fabric library spans bouclÃ©, velvet, mohair and performance weave — each one digitised for exact colour matching so partners can specify with confidence, on screen, before a metre is cut.</p><p class="p-md">Bring your own material and we'll test it for upholstery suitability before it enters production.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:520px"><div class="eyebrow mb-md rv">The story</div><h2 class="rv rv-d1 h2" style="color:var(--bone)">Seventeen years<br>of motion.</h2></div>
+    <div class="tl">
+      <div class="tlrow rv"><div class="yr">2009</div><div><h3 class="h4">The workshop opens</h3><p class="p-md">Founded in Antwerp repairing and re-engineering motion mechanisms for other furniture houses.</p></div></div>
+      <div class="tlrow rv"><div class="yr">2013</div><div><h3 class="h4">First powered sofa</h3><p class="p-md">The debut of our silent dual-motor mechanism — the design that still anchors the collection today.</p></div></div>
+      <div class="tlrow rv"><div class="yr">2017</div><div><h3 class="h4">The fabric archive</h3><p class="p-md">We begin digitising our upholstery library, reaching two thousand fabrics matched for on-screen specification.</p></div></div>
+      <div class="tlrow rv"><div class="yr">2021</div><div><h3 class="h4">Trade partnership</h3><p class="p-md">Formal white-label and OEM programmes launch for manufacturers, galleries and hospitality groups.</p></div></div>
+      <div class="tlrow rv"><div class="yr">2026</div><div><h3 class="h4">Forty countries</h3><p class="p-md">Made-to-order motion furniture shipping worldwide, still one maker to a finished piece.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv"><div class="eyebrow mb-md">Our vision</div><h3 class="h3">Motion, made to last a generation.</h3><p class="p-md">We picture a world where powered furniture is no longer disposable — where a mechanism is engineered, serviced and trusted like the movement of a fine watch. Seating that adapts to the body, silently, for decades.</p></div>
+      <div class="rv rv-d1"><div class="eyebrow mb-md">Our mission</div><h3 class="h3">Engineer the quiet, wrap it beautifully.</h3><p class="p-md">To build the most reliable motion mechanisms in the industry and dress them in an upholstery worthy of the engineering underneath — supplying the manufacturers, galleries and houses who refuse to compromise on either.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:560px"><div class="eyebrow mb-md rv">Leadership & team</div><h2 class="rv rv-d1 h2" style="color:var(--bone)">The people behind the motion.</h2></div>
+    <div class="team">
+      <div class="tm rv"><div class="tm-mono">MV</div><div class="tm-n h4">Margot Verhoeven</div><div class="tm-r">Founder & Chief Engineer</div><p class="p-sm">Started the workshop in 2009; still signs off every mechanism design before it enters production.</p></div>
+      <div class="tm rv rv-d1"><div class="tm-mono">JD</div><div class="tm-n h4">Julien Dupont</div><div class="tm-r">Head of Upholstery</div><p class="p-sm">Curator of the 2000-fabric archive and lead on every bespoke material trial.</p></div>
+      <div class="tm rv rv-d2"><div class="tm-mono">SA</div><div class="tm-n h4">Sofia Andersson</div><div class="tm-r">Director of Partnerships</div><p class="p-sm">Runs the white-label and OEM programmes, from first brief to delivery calendar.</p></div>
+      <div class="tm rv rv-d3"><div class="tm-mono">RK</div><div class="tm-n h4">Rahul Kapoor</div><div class="tm-r">Production Lead</div><p class="p-sm">Keeps one-maker-per-piece scaling honestly across forty countries of demand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" style="border-top:1px solid var(--line-inv)">
+  <div class="wrap">
+    <div class="eyebrow mb-lg rv">What we hold to</div>
+    <div class="values">
+      <div class="val rv"><div class="num">01</div><h3 class="h4">Mechanism first</h3><p class="p-md">We engineer motion before form. If it doesn't move silently for decades, it doesn't leave the workshop.</p></div>
+      <div class="val rv rv-d1"><div class="num">02</div><h3 class="h4">One maker, one piece</h3><p class="p-md">Every finished piece is assembled and upholstered by a single maker who signs their work.</p></div>
+      <div class="val rv rv-d2"><div class="num">03</div><h3 class="h4">Partner, not vendor</h3><p class="p-md">We work as an extension of our partners' teams — shared calendars, honest lead times, no surprises.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:560px">
+      <div class="eyebrow mb-md rv">How we work</div>
+      <h2 class="rv rv-d1 h2">From mechanism to made.</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv" data-cursor-label="01"><span class="sn">01 / Consult</span><h3 class="h3">Specify</h3><p class="p-md">We start with your brief — operation, dimensions, fabric direction and volume. Trade partners receive a dedicated project lead from day one.</p></div>
+      <div class="step rv" data-cursor-label="02"><span class="sn">02 / Frame</span><h3 class="h3">Build & test</h3><p class="p-md">The mechanism is assembled and the hardwood frame built around it. Every motor and glide is cycle-tested before leaving the frame shop.</p></div>
+      <div class="step rv" data-cursor-label="03"><span class="sn">03 / Dress</span><h3 class="h3">Upholster</h3><p class="p-md">High-resilience foam and feather-down are wrapped by hand, before a single maker cuts, sews and fits your chosen fabric.</p></div>
+      <div class="step rv" data-cursor-label="04"><span class="sn">04 / Ship</span><h3 class="h3">Deliver</h3><p class="p-md">Pieces are crated securely and shipped directly to site or receiving warehouse. White-glove installation available in select regions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" style="background:var(--ink);overflow:hidden;border-top:1px solid var(--line-inv)">
+  <div class="wrap" style="padding-bottom:clamp(40px,6vh,70px)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <h2 class="rv h2" style="color:var(--bone)">Recent commissions</h2>
+      <a href="projects.html" class="btn btn-solid-inv rv rv-d1" data-cursor-label="View">All projects<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="cases" id="cases">
+    <div class="ccard rv"><div class="cimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.52.00%20AM.jpeg" alt="Lombardy Suites lounge seating" style="width:100%;height:100%;object-fit:cover"></div><div class="ck">Hospitality Â· Milan</div><h3 class="h3">The Lombardy Suites</h3><p class="p-md">Forty bespoke motorised recliners tailored for the penthouse suites of Milan's newest luxury property, finished in an exclusive midnight mohair.</p></div>
+    <div class="ccard rv rv-d1"><div class="cimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.12%20AM.jpeg" alt="SoHo exhibition seating" style="width:100%;height:100%;object-fit:cover"></div><div class="ck">Gallery Â· New York</div><h3 class="h3">SoHo Exhibition</h3><p class="p-md">A custom configuration of the Verge modular system, built as the central seating island for a leading contemporary art gallery.</p></div>
+    <div class="ccard rv rv-d2"><div class="cimg imgrise"><img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.36%20AM.jpeg" alt="Kensington residence cinema room" style="width:100%;height:100%;object-fit:cover"></div><div class="ck">Private Â· London</div><h3 class="h3">Kensington Residence</h3><p class="p-md">Twelve pieces across three storeys, including a fully integrated cinema room specified in high-performance velvet.</p></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap" style="max-width:1100px">
+    <div class="eyebrow mb-md rv">What partners say</div>
+    <p class="quote h2 clip">The mechanism is the quietest we've ever specified — and their fabric archive closed <em>every</em> colour gap in our range.</p>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:42px" class="rv rv-d2">
+      <div style="width:52px;height:52px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:19px;background:linear-gradient(140deg,var(--teal-500),var(--teal-700));color:var(--bone)">ER</div>
+      <div><div class="h4">Elena Rossi</div><div class="mono" style="font-size:12px;color:var(--txt-2);letter-spacing:.06em">Head of product Â· Rossi Living</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="eyebrow rv" style="margin-bottom:44px">FAQs</div>
+    <div class="faq">
+      <div class="qa"><button>Do you offer white-label and OEM production?<span class="qi"></span></button><div class="qbody"><p>Yes. We manufacture under partner brands with bespoke labelling, packaging and documentation. Minimum order quantities and terms are agreed per programme — talk to us about your range.</p></div></div>
+      <div class="qa"><button>What are your lead times?<span class="qi"></span></button><div class="qbody"><p>Standard configurations ship in 8â€“10 weeks; bespoke mechanisms or fabrics in 12â€“14. Volume programmes are scheduled against an agreed delivery calendar with milestone updates.</p></div></div>
+      <div class="qa"><button>Can we specify our own fabric?<span class="qi"></span></button><div class="qbody"><p>Absolutely. Work from our 2000-piece archive or supply your own COM (customer's own material) — we'll test it for upholstery suitability before production.</p></div></div>
+      <div class="qa"><button>How are the motorized mechanisms warrantied?<span class="qi"></span></button><div class="qbody"><p>All powered mechanisms carry a 10-year warranty and are rated to 30,000 actuation cycles. Frames are warrantied for the lifetime of the original commercial installation.</p></div></div>
+      <div class="qa"><button>Do you ship internationally?<span class="qi"></span></button><div class="qbody"><p>We ship worldwide from Belgium, with white-glove delivery and installation available in most major markets through our logistics partners.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--paper);text-align:center">
+  <div class="wrap">
+    <div class="eyebrow mb-md rv" style="justify-content:center">Work with us</div>
+    <h2 class="rv rv-d1 h1" style="font-size:clamp(38px,6vw,96px);line-height:.96">Bring us your<br>range.</h2>
+    <div class="rv rv-d2 mt-lg" style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-solid" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="collection.html" class="btn btn-line">View the collection</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="../shared/js/main.js"></script>
+<script>
+document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>{const qa=b.closest('.qa'),body=qa.querySelector('.qbody'),open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.qbody').style.maxHeight=null;});if(!open){qa.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}});
+</script>
+</body>
+</html>

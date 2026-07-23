@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="View our portfolio of custom motion furniture installations for private residences, galleries, and hospitality groups worldwide.">
+<title>Projects — Climate Craft</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<style>
+.phead{padding:clamp(150px,20vh,220px) var(--edge) clamp(40px,6vh,70px);background:var(--paper)}
+.phead h1 em{color:var(--accent)}
+.phead .lead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:36px}
+.phead .lead p{max-width:46ch;color:var(--txt-2)}
+/* completed projects grid */
+.pjgrid{display:grid;grid-template-columns:1fr;gap:44px 30px}
+@media(min-width:760px){.pjgrid{grid-template-columns:repeat(2,1fr)}}
+.pj{cursor:none}
+.pj .pjimg{aspect-ratio:16/11;border-radius:8px;overflow:hidden;background:var(--bone-2);position:relative;margin-bottom:22px}
+.pj .pjimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.pj:hover .pjimg img{transform:scale(1.05)}
+.pj .pjk{position:absolute;top:16px;left:16px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--bone);color:var(--ink);padding:6px 12px;border-radius:100px}
+.pj h3{margin-bottom:8px}
+.pj .loc{font-family:var(--mono);font-size:12px;color:var(--txt-2);letter-spacing:.06em;text-transform:uppercase}
+.pj p{color:var(--txt-2);margin-top:12px;max-width:52ch}
+/* case study feature */
+.cs{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+@media(min-width:980px){.cs{grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}.cs.rev>:first-child{order:2}}
+.cs-img{aspect-ratio:5/4;border-radius:10px;overflow:hidden;background:var(--ink-2)}
+.cs-img img{width:100%;height:100%;object-fit:cover}
+.cs h2{color:var(--bone);margin:16px 0 20px}
+.cs .csk{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.dark .cs .csk{color:var(--teal-300)}
+.cs p{color:var(--txt-2);max-width:48ch;margin-bottom:16px}
+.dark .cs p{color:var(--txt-inv-2)}
+.csmeta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-inv);border:1px solid var(--line-inv);margin-top:30px;border-radius:8px;overflow:hidden}
+.csmeta div{background:var(--ink);padding:22px 20px}
+.dark .csmeta div{background:var(--ink-2)}
+.csmeta .cn{font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);color:var(--amber-300);font-weight:500}
+.csmeta .cl{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--txt-inv-2);margin-top:8px}
+/* challenge / solution */
+.csgrid{display:grid;grid-template-columns:1fr;gap:26px}
+@media(min-width:820px){.csgrid{grid-template-columns:1fr 1fr}}
+.csbox{border:1px solid var(--line-inv);border-radius:12px;padding:34px}
+.csbox .cbk{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-300);margin-bottom:16px}
+.csbox h4{color:var(--bone);margin-bottom:14px}
+.csbox p{color:var(--txt-inv-2)}
+.csbox ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.csbox li{color:var(--txt-inv-2);padding-left:20px;position:relative}
+.csbox li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+/* before / after */
+.ba{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--ink-2);max-width:1000px;margin:0 auto;cursor:ew-resize;box-shadow:var(--sh-lg)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--split,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--split,50%);width:2px;background:var(--bone);z-index:4;pointer-events:none}
+.ba .bar::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--bone);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.ba .bar svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:20px;height:20px;color:var(--ink)}
+.ba .tag-ba{position:absolute;top:16px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(14,18,16,.6);color:var(--bone);padding:6px 12px;border-radius:100px}
+.ba .tag-b{left:16px}.ba .tag-a{right:16px}
+/* materials */
+.mats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(min-width:760px){.mats{grid-template-columns:repeat(4,1fr)}}
+.mat{border:1px solid var(--line-inv);border-radius:10px;overflow:hidden}
+.mat .msw{aspect-ratio:3/2}
+.mat .mtxt{padding:16px}
+.mat .mn{font-family:var(--serif);font-size:17px;color:var(--bone)}
+.mat .md{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--txt-inv-2);margin-top:5px}
+/* client story / testimonial */
+.story{max-width:900px;margin:0 auto;text-align:center}
+.story .q{font-family:var(--serif);font-size:clamp(24px,3.4vw,46px);line-height:1.2;color:var(--bone);font-weight:400;letter-spacing:-.01em;text-wrap:pretty}
+.story .who{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:34px}
+.story .mono{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:20px;background:linear-gradient(140deg,var(--teal-500),var(--teal-700));color:var(--bone)}
+.story .wn{color:var(--bone)}
+.story .wr{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-inv-2);margin-top:4px}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+</style>
+</head>
+<body data-page="projects">
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a><a href="collection.html">Collections</a><a href="features.html">Features</a><a href="projects.html">Projects</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<header class="phead">
+  <div class="collbg" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+  <div class="wrap">
+    <div class="eyebrow mb-md rv">Selected work Â· 2019—2026</div>
+    <h1 class="h1 lines"><span class="ln"><span>The <em>projects.</em></span></span></h1>
+    <div class="lead">
+      <p class="rv rv-d1 p-lg">Furniture programmes delivered for manufacturers, galleries, hotels and private residences across forty countries — each one specified, engineered and made to order.</p>
+    </div>
+  </div>
+</header>
+
+<!-- COMPLETED PROJECTS -->
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="mb-lg" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div><div class="eyebrow mb-sm rv">Completed projects</div><h2 class="rv rv-d1 h2">In the field</h2></div>
+    </div>
+    <div class="pjgrid" id="pjgrid"></div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="eyebrow mb-xl rv">Case study</div>
+    <div class="cs">
+      <div class="cs-img imgrise" data-parallax="0.08"><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.51.30%20AM.jpeg" alt="Rossi Living flagship" style="height:116%"></div>
+      <div class="rv rv-d1">
+        <span class="csk">Retail Â· Milan</span>
+        <h2 class="h2">Rossi Living flagship</h2>
+        <p class="p-md">A nine-month rollout of 120 white-labelled motorized Meridian units for Rossi Living's new Milan flagship — delivered to a fixed calendar, under the Rossi name.</p>
+        <p class="p-md">Every piece was cycle-tested, upholstered in a bespoke performance bouclÃ© and shipped in phased tranches to match the store fit-out.</p>
+        <div class="csmeta">
+          <div><div class="cn">120</div><div class="cl">units delivered</div></div>
+          <div><div class="cn">9 mo</div><div class="cl">phased rollout</div></div>
+          <div><div class="cn">100%</div><div class="cl">on-date</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGES / SOLUTIONS -->
+<section class="sec dark" style="border-top:1px solid var(--line-inv)">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:560px"><div class="eyebrow mb-md rv">How we delivered</div><h2 class="rv rv-d1 h2" style="color:var(--bone)">Challenges & solutions</h2></div>
+    <div class="csgrid">
+      <div class="csbox rv"><div class="cbk">The challenge</div><h4 class="h4">A moving target</h4><p class="p-md">The client needed a consistent motorized recliner across a flagship still being built — with no fixed delivery date and a fit-out schedule that kept shifting.</p><ul class="p-md"><li>Undefined final quantities at kickoff</li><li>Single bespoke fabric across all units</li><li>Phased, just-in-time delivery</li></ul></div>
+      <div class="csbox rv rv-d1"><div class="cbk">Our solution</div><h4 class="h4">Made-to-order, staged</h4><p class="p-md">We locked the mechanism and fabric early, then built to a rolling forecast — releasing tranches against the site calendar with weekly milestone reporting.</p><ul class="p-md"><li>Cycle-tested mechanism signed off in week one</li><li>Fabric archived and colour-locked for reorders</li><li>Dedicated project lead end-to-end</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="mb-lg" style="text-align:center;max-width:620px;margin-left:auto;margin-right:auto"><div class="eyebrow mb-md rv" style="justify-content:center">Before & after</div><h2 class="rv rv-d1 h2">The room, transformed</h2><p class="rv rv-d2 p-md mt-sm" style="color:var(--txt-2)">Drag to reveal the same lounge before and after a full Climate Craft re-seating.</p></div>
+    <div class="ba" id="ba">
+      <img loading="lazy" class="before" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.48.13%20AM.jpeg" alt="Before">
+      <img loading="lazy" class="after" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.32%20AM.jpeg" alt="After">
+      <span class="tag-ba tag-b">Before</span><span class="tag-ba tag-a">After</span>
+      <div class="bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS USED -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:560px"><div class="eyebrow mb-md rv">Materials used</div><h2 class="rv rv-d1 h2" style="color:var(--bone)">Specified for this project</h2></div>
+    <div class="mats">
+      <div class="mat rv"><div class="msw" style="background:linear-gradient(135deg,#b9a88f,#9c8f76)"></div><div class="mtxt"><div class="mn">Camel bouclÃ©</div><div class="md">Primary upholstery</div></div></div>
+      <div class="mat rv rv-d1"><div class="msw" style="background:linear-gradient(135deg,#3a4a48,#26302f)"></div><div class="mtxt"><div class="mn">Forest weave</div><div class="md">Accent cushions</div></div></div>
+      <div class="mat rv rv-d2"><div class="msw" style="background:linear-gradient(135deg,#2a2d2b,#141615)"></div><div class="mtxt"><div class="mn">Blackened oak</div><div class="md">Base finish</div></div></div>
+      <div class="mat rv rv-d3"><div class="msw" style="background:linear-gradient(135deg,#c8a24a,#a07d28)"></div><div class="mtxt"><div class="mn">Brushed brass</div><div class="md">Mechanism trim</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT STORY -->
+<section class="sec dark" style="border-top:1px solid var(--line-inv)">
+  <div class="wrap story">
+    <div class="eyebrow mb-md rv" style="justify-content:center">Client story</div>
+    <p class="q h2 clip">"We handed Climate Craft a moving target and they hit every date. The units are indistinguishable from our own design language — that's the whole point of a good partner."</p>
+    <div class="who rv rv-d2"><span class="mono">ER</span><div><div class="wn h4">Elena Rossi</div><div class="wr">Head of Product Â· Rossi Living</div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="background:var(--paper);text-align:center">
+  <div class="wrap">
+    <div class="eyebrow mb-md rv" style="justify-content:center">Start a project</div>
+    <h2 class="rv rv-d1 h1">Let's build<br>yours.</h2>
+    <div class="rv rv-d2 mt-lg" style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-solid" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="collection.html" class="btn btn-line">View the collection</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="../shared/js/main.js"></script>
+<script>
+(function(){
+  const IMG=t=>`../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${t}%20AM.jpeg`;
+  const PJ=[
+    {k:'Hospitality Â· Lisbon',n:'Aurora Hotel lounges',loc:'11 suites Â· 2 lobbies',img:'11.47.24',d:'Custom Verge sectionals in performance mohair, delivered across a phased hotel opening.'},
+    {k:'Residential Â· New York',n:'Tribeca penthouse',loc:'Private residence',img:'11.50.09',d:'A manual Halcyon glide and Atlas pairing in hand-dyed camel linen for a full-floor apartment.'},
+    {k:'Retail Â· Milan',n:'Rossi Living flagship',loc:'120 units delivered',img:'11.46.13',d:'White-labelled motorized recliners rolled out over nine months under the client brand.'},
+    {k:'Workspace Â· Antwerp',n:'Meridian HQ lounge',loc:'Breakout & focus rooms',img:'11.49.57',d:'Motorized daybeds and lounge chairs for a headquarters designed around quiet.'},
+    {k:'Gallery Â· Paris',n:'Atelier Sud showroom',loc:'Rotating installation',img:'11.46.57',d:'A curated set of signature pieces refreshed seasonally with new archive fabrics.'},
+    {k:'Hospitality Â· Copenhagen',n:'Nord spa retreat',loc:'Relaxation suites',img:'11.48.37',d:'Silent-recline daybeds specified for a low-noise wellness environment.'},
+  ];
+  document.getElementById('pjgrid').innerHTML=PJ.map((p,i)=>`<a href="contact.html" class="pj rv ${i%2?'rv-d1':''}" data-cursor-label="Enquire"><div class="pjimg"><span class="pjk">${p.k}</span><img loading="lazy" src="${IMG(p.img)}" alt="${p.n}"></div><h3 class="h3">${p.n}</h3><span class="loc">${p.loc}</span><p class="p-md">${p.d}</p></a>`).join('');
+  document.querySelectorAll('.pj.rv').forEach(el=>el.classList.add('in'));
+  // before/after slider
+  const ba=document.getElementById('ba');
+  const set=x=>{const r=ba.getBoundingClientRect();let p=(x-r.left)/r.width*100;p=Math.max(2,Math.min(98,p));ba.style.setProperty('--split',p+'%');};
+  let drag=false;
+  ba.addEventListener('mousedown',e=>{drag=true;set(e.clientX);});
+  addEventListener('mousemove',e=>{if(drag)set(e.clientX);});
+  addEventListener('mouseup',()=>drag=false);
+  ba.addEventListener('mousemove',e=>{if(!drag)set(e.clientX);});
+  ba.addEventListener('touchmove',e=>{set(e.touches[0].clientX);},{passive:true});
+})();
+</script>
+</body>
+</html>

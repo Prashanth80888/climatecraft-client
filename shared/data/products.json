@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Recliners",
+    "dir": "ltr",
+    "dur": 28,
+    "items": [
+      ["11.52.00","Nimbus","Smart power recliner"],["11.50.28","Meridian","Sensor-assist recliner"],
+      ["11.47.49","Verge","App-controlled modular"],["11.50.36","Orbit","Zero-gravity swivel"],
+      ["11.51.30","Pulse","Adaptive power lounger"],["11.47.24","Cove","Heated cloud sofa"]
+    ]
+  },
+  {
+    "title": "Two-Seater Sofas",
+    "dir": "rtl",
+    "dur": 38,
+    "items": [
+      ["11.50.28","Meridian","Motorized recliner"],["11.50.36","Orbit","Swivel recliner"],
+      ["11.50.46","Recline","Power reclining chair"],["11.50.58","Nero","Motorized accent"],
+      ["11.51.12","Ledger","Recliner with console"],["11.51.30","Pulse","Power lounger"],
+      ["11.51.47","Halcyon Rest","Deep power recliner"],["11.52.00","Nimbus","Smart recliner"],
+      ["11.52.09","Ease","Wall-hugger recliner"],["11.52.33","Ascend","Power lift recliner"]
+    ]
+  },
+  {
+    "title": "Three-Seater Sofas",
+    "dir": "ltr",
+    "dur": 48,
+    "items": [
+      ["11.46.04","Halcyon","Manual glide sofa"],["11.46.13","Linden","Three-seat sofa"],
+      ["11.46.21","Marlowe","Pillow-back sofa"],["11.47.15","Quill","Slim-arm sofa"],
+      ["11.47.32","Drift","Lounge sofa"],["11.47.43","Nero","Channel sofa"],
+      ["11.48.13","Fern","Two-seat settee"],["11.48.22","Sable","Classic sofa"],
+      ["11.48.29","Bay","Window daybed sofa"],["11.48.06","Blush","Compact loveseat"]
+    ]
+  }
+]

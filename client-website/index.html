@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Silent dual-motor and manual motion furniture engineered in Belgium. Motorized seating, power recliners, and made-to-order sofas for manufacturers and galleries.">
+<meta name="theme-color" content="#0e1210">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Climate Craft — Motion Furniture</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<style>
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,16,.55)0%,rgba(14,18,16,.24)40%,rgba(14,18,16,.78)100%);z-index:2}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;opacity:0;transition:opacity 1.6s var(--ease)}
+.hero-vid.on{opacity:1}
+.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-in{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--edge) clamp(48px,8vh,90px)}
+.hero h1{color:var(--bone)}
+.hero h1 em{color:var(--amber-300)}
+.hero-sub{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:34px;flex-wrap:wrap}
+.hero-sub p{max-width:440px;color:rgba(244,241,234,.85)}
+.hero-top{position:absolute;top:0;left:0;right:0;z-index:3;padding:120px var(--edge) 0;display:flex;justify-content:space-between;color:rgba(244,241,234,.7);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.scrollcue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:4;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.6);display:flex;flex-direction:column;align-items:center;gap:12px}
+.scrollcue span{width:1px;height:44px;background:linear-gradient(rgba(244,241,234,.6),transparent);animation:cue 2s var(--ease-io) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+#progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);z-index:950;transform:scaleX(0);transform-origin:left}
+.stmt-row{display:grid;grid-template-columns:1fr;gap:60px}
+.stmt-side{display:flex;flex-direction:column;gap:28px;max-width:390px;justify-self:end}
+.stmt-side p{color:var(--txt-2)}
+@media(min-width:900px){.stmt-row{grid-template-columns:1.5fr 1fr;align-items:end}}
+.pillars{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line-inv)}
+@media(min-width:760px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.pillars{grid-template-columns:repeat(4,1fr)}}
+.pillar{padding:44px 34px 44px 0;border-bottom:1px solid var(--line-inv)}
+@media(min-width:1100px){.pillar{border-bottom:none;padding:0 40px;border-right:1px solid var(--line-inv)}.pillar:last-child{border-right:none}}
+.pillar .num{font-family:var(--mono);font-size:12px;color:var(--teal-300);letter-spacing:.1em}
+.pillar h3{color:var(--bone);margin-bottom:12px}
+.pillar p{color:var(--txt-inv-2)}
+.stat-big{font-family:var(--serif);color:var(--amber-300);font-weight:500}
+.cta{position:relative;text-align:center;overflow:hidden}
+.cta h2{color:var(--bone)}
+.cta h2 em{font-style:italic;color:var(--amber-300);font-weight:400}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+/* home now uses the light bone theme, matching every other page.
+   Only the media sections stay cinematic dark: the video hero + the descent frame-sequence. */
+body[data-page="home"]{background:var(--bone)}
+body[data-page="home"]>header,body[data-page="home"]>section,body[data-page="home"]>footer,body[data-page="home"]>.marquee-wrap{position:relative;z-index:1}
+/* ticker */
+body[data-page="home"] .marquee-wrap{background:var(--bone-2);border-bottom:1px solid var(--line)}
+body[data-page="home"] .marquee-wrap .mono{color:var(--txt-2)!important}
+body[data-page="home"] .marquee-wrap .mq-item{color:var(--txt-2)!important}
+body[data-page="home"] .marquee-wrap .mq-icon{opacity:.6}
+body[data-page="home"] .marquee-wrap .mq-div{color:var(--line)!important}
+/* neutralise dark sections â†’ light */
+body[data-page="home"] .dark{background:transparent!important;color:var(--txt)!important}
+body[data-page="home"] .dark h1,body[data-page="home"] .dark h2,body[data-page="home"] .dark h3,body[data-page="home"] .dark h4{color:var(--txt)!important}
+body[data-page="home"] .dark h2 em,body[data-page="home"] .cta h2 em{color:var(--warm)!important}
+body[data-page="home"] section [style*="var(--bone)"]{color:var(--txt)!important}
+body[data-page="home"] section [style*="txt-inv-2"]{color:var(--txt-2)!important}
+body[data-page="home"] .dark .btn-line{border-color:var(--line);color:var(--txt)}
+body[data-page="home"] .dark .btn-line:hover{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+body[data-page="home"] .dark .tag{border-color:var(--line);color:var(--txt-2)}
+/* statement */
+.stmt-sec{background:transparent}
+.stmt-sec .stmt{color:var(--txt)}
+.stmt-sec .stmt em{color:var(--accent)}
+.stmt-sec .stmt-side p{color:var(--txt-2)}
+.stmt-sec .eyebrow{color:var(--accent)}
+.stmt-sec .eyebrow::before{background:var(--accent)}
+/* highlight all teal/blue text for readability on light bg */
+body[data-page="home"] .eyebrow,body[data-page="home"] .dark .eyebrow{color:var(--teal-600)!important}
+body[data-page="home"] .eyebrow::before{background:var(--teal-600)!important}
+body[data-page="home"] .stmt-sec .stmt em,body[data-page="home"] .dark h2 em{color:var(--teal-600)!important}
+body[data-page="home"] .pillar .num{color:var(--teal-600)!important}
+body[data-page="home"] .fcard .fc-cta{color:var(--teal-600)!important}
+body[data-page="home"] .nlink.active,body[data-page="home"] .nlink:hover{color:var(--teal-600)!important}
+body[data-page="home"] .dark .tag{color:var(--teal-600)!important}
+/* featured categories rows */
+body[data-page="home"] .frow-heading{color:var(--txt)}
+body[data-page="home"] .fcard .fc-img,body[data-page="home"] .tst-shot{background:var(--bone-3)}
+/* pillars */
+body[data-page="home"] .pillars{border-top-color:var(--line)}
+body[data-page="home"] .pillar{border-color:var(--line)}
+body[data-page="home"] .pillar h3{color:var(--txt)}
+body[data-page="home"] .pillar p{color:var(--txt-2)}
+/* testimonials */
+body[data-page="home"] .tst-card{background:var(--paper);border-color:var(--line);box-shadow:var(--sh-md)}
+/* cta buttons on light */
+body[data-page="home"] .cta .btn-solid-inv{background:var(--ink);color:var(--bone)}
+body[data-page="home"] .cta .btn-solid-inv:hover{background:var(--accent);color:#fff}
+
+</style>
+</head>
+<body data-page="home" class="boot-lock">
+<div id="preloader"><img src="../shared/media/logo.png" alt="Climate Craft" class="pl-logo"><div class="pl-text">Climate Craft</div></div>
+<div class="collbg fixed" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+<div id="progress"></div>
+
+<nav class="nav on-dark" data-hero-dark>
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a>
+  <a href="collection.html">Collections</a>
+  <a href="features.html">Features</a>
+  <a href="projects.html">Projects</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg">
+    <img class="hero-poster" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg" alt="Climate Craft motorized recliner">
+    <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg"><source src="../shared/media/uploads/i_need_video_on_the_sofa_and_r.mp4" type="video/mp4"></video>
+  </div>
+  <div class="hero-top"><span>Motion furniture Â· Est. 2009</span><span>Antwerp — Milan — New York</span></div>
+  <div class="hero-in">
+    <h1 class="h1 lines"><span class="ln"><span>Furniture that</span></span><span class="ln"><span><em>moves</em> with you.</span></span></h1>
+    <div class="hero-sub rv rv-d2">
+      <p class="p-lg">Motorized and manually operated seating, engineered in-house and upholstered by hand — built for the manufacturers and galleries who set the standard.</p>
+      <a href="collection.html" class="btn btn-solid-inv" data-cursor-label="Explore">View the collection<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<span></span></div>
+</header>
+
+<!-- MARQUEE ticker -->
+<div class="marquee-wrap" style="padding:20px 0;border-bottom:1px solid var(--line-inv)">
+  <div class="marquee"><div class="mq-track"><div class="mq-set">
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.5 9.8 5.2 14 5.8 11 8.8 12 13 8 10.8 4 13 5 8.8 2 5.8 6.2 5.2z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">SILENT DUAL-MOTOR ACTUATION</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--bone)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">28-POINT HARDWOOD FRAME</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1 13 8 8 15 3 8z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">2000+ ARCHIVE FABRICS</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--bone)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.5S3.5 3.5 3.5 3.5V8c0 3.5 4.5 6.5 4.5 6.5s4.5-3 4.5-6.5V3.5S12.5 3.5 8 1.5z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">10-YEAR MECHANISM WARRANTY</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="6" r="2.5"/><path d="M8 14S3.5 9 3.5 6a4.5 4.5 0 019 0c0 3-4.5 8-4.5 8z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">MADE TO ORDER IN BELGIUM</span></span><span class="mq-div">/</span>
+  </div><div class="mq-set" aria-hidden="true">
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.5 9.8 5.2 14 5.8 11 8.8 12 13 8 10.8 4 13 5 8.8 2 5.8 6.2 5.2z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">SILENT DUAL-MOTOR ACTUATION</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--bone)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1.5"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">28-POINT HARDWOOD FRAME</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1 13 8 8 15 3 8z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">2000+ ARCHIVE FABRICS</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--bone)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.5S3.5 3.5 3.5 3.5V8c0 3.5 4.5 6.5 4.5 6.5s4.5-3 4.5-6.5V3.5S12.5 3.5 8 1.5z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">10-YEAR MECHANISM WARRANTY</span></span><span class="mq-div">/</span>
+    <span class="mq-item" style="color:var(--teal-300)"><svg class="mq-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="6" r="2.5"/><path d="M8 14S3.5 9 3.5 6a4.5 4.5 0 019 0c0 3-4.5 8-4.5 8z"/></svg><span class="mono" style="font-size:13px;letter-spacing:.1em">MADE TO ORDER IN BELGIUM</span></span><span class="mq-div">/</span>
+  </div></div></div>
+</div>
+
+<!-- STATEMENT -->
+<section class="sec stmt-sec">
+  <div class="wrap">
+    <div class="eyebrow mb-lg rv">The house</div>
+    <div class="stmt-row">
+      <p class="h2 lines"><span class="ln"><span>We engineer the</span></span><span class="ln"><span>quiet mechanics of</span></span><span class="ln"><span><em>comfort</em> — then wrap</span></span><span class="ln"><span>them in fabric.</span></span></p>
+      <div class="stmt-side rv rv-d2">
+        <p class="p-md">Every Climate Craft piece begins as a mechanism: a motor, a hinge, a hand-crank glide tuned to move without a sound. Around it we build a hardwood frame, a hand-tied suspension, and an upholstery you choose from an archive of over two thousand fabrics.</p>
+        <p class="p-md">We supply manufacturers, galleries and interior houses who need seating that performs as beautifully as it sits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CATEGORIES — three stacked product lanes -->
+<section class="sec dark fcat" style="overflow:hidden;padding:clamp(90px,13vh,180px) 0">
+  <div class="wrap" style="padding:0 var(--edge)">
+    <div class="eyebrow mb-md rv">Featured Categories</div>
+    <h2 class="rv rv-d1 h2" style="color:var(--bone);max-width:700px">Three ways to move</h2>
+  </div>
+  <div class="fcat-rows" id="fcatRows"></div>
+</section>
+
+<!-- STORY CONTAINER (Frame Sequence) -->
+<section class="story-container" style="position:relative;background:var(--seq-bg2);">
+  <div class="seq-pin">
+    <canvas class="seq-canvas" data-frames="300"></canvas>
+    <div class="seq-cap" data-seq-cap>
+      <div class="eyebrow mb-sm">Descent</div>
+      <h2 class="h1">It arrives<br>from <em>above.</em></h2>
+      <p class="p-md">Every piece is lowered, positioned and set by hand — a choreography of frame, mechanism and fabric coming to rest in the room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CLIMATE CRAFT -->
+<section class="sec why-layer" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="mb-xl" style="max-width:720px">
+      <div class="eyebrow mb-md rv">Why Climate Craft</div>
+      <h2 class="rv rv-d1 h2">Engineering you can feel, upholstery you can't stop touching.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><div class="num">01</div><h3 class="h4">Silent mechanism</h3><p class="p-md">Dual-motor and hand-crank systems tuned in-house to move without a whir. Rated for 30,000 cycles.</p></div>
+      <div class="pillar rv rv-d1"><div class="num">02</div><h3 class="h4">Made to order</h3><p class="p-md">Every frame is built to your specification in our Belgian workshop — no warehouse, no compromise.</p></div>
+      <div class="pillar rv rv-d2"><div class="num">03</div><h3 class="h4">2000+ fabrics</h3><p class="p-md">A living archive of bouclÃ©, velvet, mohair and performance weave, digitised for exact colour matching.</p></div>
+      <div class="pillar rv rv-d3"><div class="num">04</div><h3 class="h4">FAQs</h3><p class="p-md">Get answers to the most common FAQs — lead times, whiteâ€‘label, warranty and international delivery.</p></div>
+    </div>
+    <div class="rv rv-d1 mt-xl" style="display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:900px">
+      <div><div class="h2 stat-big" data-count="30000">0</div><p class="p-sm mt-sm" style="color:var(--txt-2)">rated actuation cycles per mechanism</p></div>
+      <div><div class="h2 stat-big"><span data-count="98.4">0</span>%</div><p class="p-sm mt-sm" style="color:var(--txt-2)">of orders shipped on the promised date</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec dark tsts" style="overflow:hidden">
+  <div class="wrap">
+    <div class="mb-lg" style="max-width:640px">
+      <div class="eyebrow mb-md rv">In their words</div>
+      <h2 class="rv rv-d1 h2" style="color:var(--bone)">Trusted by the houses that set the standard.</h2>
+    </div>
+  </div>
+  <div class="tst-mask"><div class="tst-track" id="tstTrack"></div></div>
+</section>
+
+<!-- CTA -->
+<section class="sec dark cta" id="contact">
+  <div class="wrap" style="position:relative;z-index:3">
+    <div class="eyebrow mb-md rv" style="justify-content:center">Start a project</div>
+    <h2 class="h1 lines"><span class="ln"><span>Let's build something</span></span><span class="ln"><span>that <em>moves</em>.</span></span></h2>
+    <p class="rv rv-d2 p-lg mt-md" style="color:var(--txt-inv-2);max-width:52ch;margin-left:auto;margin-right:auto">Tell us about your range or project. We'll prepare a specification and quote — no pricing pages, no guesswork.</p>
+    <div class="rv rv-d3 mt-lg" style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-solid-inv" data-cursor-label="Let's talk">Request a quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="about.html" class="btn btn-line">About the atelier</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="brand mb-md" style="color:var(--bone)"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+        <p class="h2">Motion furniture, made to order.</p>
+      </div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(async function(){
+  const IMG=t=>`../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${t}%20AM.jpeg`;
+  
+  try {
+    const [prodRes, tstRes] = await Promise.all([
+      fetch('../shared/data/products.json'),
+      fetch('../shared/data/testimonials.json')
+    ]);
+    const categories = await prodRes.json();
+    const tsts = await tstRes.json();
+
+    /* ---- featured categories: 3 product lanes ---- */
+    const fcard=(it)=>`<a href="product.html" class="fcard" data-cursor-label="View"><div class="fc-img"><img loading="lazy" src="${IMG(it[0])}" alt="${it[1]}"><span class="fc-view"><span>View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="fc-body"><h4>${it[1]}</h4><span class="fc-tag">${it[2]}</span><span class="fc-cta">Request Quote<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>`;
+    document.getElementById('fcatRows').innerHTML=categories.map(c=>{
+      const cards=c.items.map(it=>fcard(it)).join('');
+      return `<div class="frow-wrap"><div class="wrap" style="padding:0 var(--edge) 14px"><h3 class="frow-heading">${c.title}</h3></div><div class="frow ${c.dir}" style="--dur:${c.dur}s"><div class="frow-inner">${cards}</div><div class="frow-inner" aria-hidden="true">${cards}</div></div></div>`;
+    }).join('');
+
+    /* ---- testimonials continuous marquee loop ---- */
+    const star='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>';
+    const tstCard=t=>`<div class="tst-slide"><div class="tst-card"><div><div class="tst-stars">${star.repeat(5)}</div><p class="tst-q">"${t.q}"</p><div class="tst-who"><span class="tst-mono">${t.mono}</span><div><div class="tn">${t.n}</div><div class="tr">${t.r}</div></div></div></div><div class="tst-shot"><img loading="lazy" src="${IMG(t.img)}" alt="${t.n}"></div></div></div>`;
+    const tTrack = document.getElementById('tstTrack');
+    tTrack.innerHTML=tsts.map(t=>tstCard(t)).join('')+tsts.map(t=>tstCard(t)).join('');
+    
+    // Robust GSAP animation for testimonials to avoid CSS cache/support issues
+    if (typeof gsap !== 'undefined') {
+      // Wait for next tick so DOM measures correctly
+      setTimeout(() => {
+        const slides = tTrack.querySelectorAll('.tst-slide');
+        const gap = 30; // matching CSS gap: 30px
+        const singleWidth = slides[0].offsetWidth + gap;
+        const totalWidth = singleWidth * tsts.length;
+        
+        // Remove CSS animation to let GSAP take over
+        tTrack.style.animation = 'none';
+        tTrack.style.webkitAnimation = 'none';
+        
+        gsap.to(tTrack, {
+          x: -totalWidth,
+          ease: 'none',
+          duration: 40,
+          repeat: -1
+        });
+      }, 50);
+    }
+  } catch (err) {
+    console.error("Failed to load CMS data", err);
+  }
+
+  // Load main.js dynamically after DOM is populated
+  const script = document.createElement('script');
+  script.src = '../shared/js/main.js';
+  document.body.appendChild(script);
+
+  /* ---- hero video fade-in ---- */
+  const v=document.querySelector('.hero-vid');
+  if(v){const show=()=>v.classList.add('on');if(v.readyState>=2)show();v.addEventListener('loadeddata',show);v.addEventListener('canplay',show);setTimeout(show,2500);}
+})();
+</script>
+</body>
+</html>

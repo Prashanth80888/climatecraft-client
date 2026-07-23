@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore the Climate Craft collection of motorized, manual glide, and modular motion furniture.">
+<title>Collection — Climate Craft</title>
+<link rel="stylesheet" href="../shared/css/main.css">
+<style>
+.phead{padding:clamp(150px,20vh,220px) var(--edge) clamp(50px,7vh,90px);background:var(--paper)}
+.phead h1 em{color:var(--accent)}
+.phead .lead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:40px}
+.phead .lead p{max-width:44ch;color:var(--txt-2)}
+.filters{position:sticky;top:0;z-index:800;background:rgba(244,241,234,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px var(--edge);display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.fgroup{display:flex;gap:8px;align-items:center}
+.fgroup .fl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-2);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:9px 16px;border:1px solid var(--line);border-radius:100px;cursor:none;transition:all .3s;text-transform:uppercase;background:transparent;color:var(--txt-2)}
+.chip.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.count{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--txt-2);letter-spacing:.06em}
+.grid{padding:clamp(50px,7vh,90px) var(--edge) clamp(90px,13vh,160px);display:grid;gap:50px 30px;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}}
+.pcard{cursor:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.pcard.hide{display:none}
+.pcard .pimg{aspect-ratio:4/5;background:var(--bone-2);border-radius:6px;overflow:hidden;position:relative;margin-bottom:20px}
+.pcard .pimg>*{transition:transform 1.4s var(--ease)}
+.pcard:hover .pimg>*{transform:scale(1.05)}
+.sig{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:760px){.sig{grid-template-columns:repeat(3,1fr)}}
+.sigcard{cursor:none}
+.sigimg{aspect-ratio:5/4;border-radius:6px;overflow:hidden;background:var(--bone-2);position:relative;margin-bottom:18px}
+.sigimg>*{transition:transform 1s var(--ease)}
+.sigcard:hover .sigimg>*{transform:scale(1.05)}
+.sigimg .badge{position:absolute;top:16px;left:16px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bone);padding:6px 12px;border-radius:100px}
+.sigimg .badge.pw{background:var(--accent)}
+.pcard .badge{position:absolute;top:16px;left:16px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bone);padding:6px 12px;border-radius:100px}
+.pcard .badge.pw{background:var(--accent)}
+.pcard .quote-lnk{position:absolute;bottom:16px;right:16px;z-index:3;width:46px;height:46px;border-radius:50%;background:var(--bone);display:grid;place-items:center;opacity:0;transform:translateY(8px);transition:all .4s var(--ease)}
+.pcard:hover .quote-lnk{opacity:1;transform:none}
+.pmeta{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.cat-lbl{font-family:var(--mono);font-size:12px;color:var(--txt-2);letter-spacing:.06em;text-transform:uppercase}
+.pspec{font-family:var(--mono);font-size:12.5px;color:var(--txt-2);margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+.pspec b{color:var(--txt);font-weight:500}
+.fgrid{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv)}
+@media(min-width:800px){.fgrid{grid-template-columns:1.6fr repeat(3,1fr)}}
+.fcol h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-inv-2);font-weight:500;margin-bottom:20px}
+.fcol a{display:block;padding:7px 0;font-size:15px}
+.fbot{display:flex;justify-content:space-between;padding-top:34px;font-family:var(--mono);font-size:12px;color:var(--txt-inv-2);letter-spacing:.06em;flex-wrap:wrap;gap:16px}
+.foot .big{color:var(--bone);max-width:14ch}
+</style>
+</head>
+<body data-page="collection">
+<div id="cursor"></div><div id="cursor-ring"></div><div id="cursor-label"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand"><img class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a>
+  <div class="navlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="collection.html" class="nlink">Collections</a>
+    <a href="features.html" class="nlink">Features</a>
+    <a href="projects.html" class="nlink">Projects</a>
+    <a href="about.html" class="nlink">About Us</a>
+    <a href="contact.html" class="nlink">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-quote" data-cursor-label="Let's talk">Request Quote</a>
+  <button class="navtoggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="navdrawer">
+  <a href="index.html">Home</a><a href="collection.html">Collections</a><a href="features.html">Features</a><a href="projects.html">Projects</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-quote dw-cta">Request Quote</a>
+  <div class="dw-meta"><span>Antwerp — Milan — New York</span><span>hello@climatecraft.co</span></div>
+</div>
+
+<header class="phead">
+  <div class="collbg" aria-hidden="true"><span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span></div>
+  <div class="wrap">
+    <div class="eyebrow mb-md rv">The full range Â· Made to order</div>
+    <h1 class="h1 lines"><span class="ln"><span>The <em>collection</em></span></span></h1>
+    <div class="lead">
+      <p class="rv rv-d1 p-lg">Motorized and manually operated seating, engineered in-house and upholstered by hand. Filter by operation and type — every piece is quoted, never priced.</p>
+    </div>
+  </div>
+</header>
+
+<!-- SIGNATURE PIECES -->
+<section style="padding:0 var(--edge) clamp(50px,7vh,90px);background:var(--paper)">
+  <div class="wrap">
+    <div class="mb-lg" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div><div class="eyebrow mb-sm rv">Signature pieces</div><h2 class="rv rv-d1 h2">The ones we're known for</h2></div>
+      <p class="rv rv-d2 p-md" style="color:var(--txt-2);max-width:34ch">Three designs that define the house — each configurable and made to order.</p>
+    </div>
+    <div class="sig">
+      <a href="product.html" class="sigcard rv" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.28%20AM.jpeg" alt="Meridian" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Meridian</h3><span class="cat-lbl">Recliner sofa</span></div></a>
+      <a href="product.html" class="sigcard rv rv-d1" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge">Manual</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.46.04%20AM.jpeg" alt="Halcyon" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Halcyon</h3><span class="cat-lbl">Glide sofa</span></div></a>
+      <a href="product.html" class="sigcard rv rv-d2" data-cursor-label="View"><div class="sigimg imgrise"><span class="badge pw">Motorized</span><img src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.47.49%20AM.jpeg" alt="Verge" style="width:100%;height:100%;object-fit:cover"></div><div class="pmeta"><h3 class="h4">Verge</h3><span class="cat-lbl">Modular sectional</span></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="filters">
+  <div class="fgroup"><span class="fl">Operation</span>
+    <button class="chip on" data-f="op" data-v="all">All</button>
+    <button class="chip" data-f="op" data-v="motorized">Motorized</button>
+    <button class="chip" data-f="op" data-v="manual">Manual</button>
+  </div>
+  <div class="fgroup"><span class="fl">Type</span>
+    <button class="chip on" data-f="type" data-v="all">All</button>
+    <button class="chip" data-f="type" data-v="sofa">Sofas</button>
+    <button class="chip" data-f="type" data-v="modular">Modular</button>
+    <button class="chip" data-f="type" data-v="chair">Chairs</button>
+  </div>
+  <span class="count" id="count">34 pieces</span>
+</div>
+
+<section class="grid" id="grid"></section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="brand" style="color:var(--bone);margin-bottom:26px"><img loading="lazy" class="logo-img" src="../shared/media/logo.png" alt="Climate Craft">Climate Craft</a><p class="big">Motion furniture, made to order.</p></div>
+      <div class="fcol"><h4>Collection</h4><a href="collection.html">Motorized</a><a href="collection.html">Manual glide</a><a href="collection.html">Modular</a><a href="collection.html">Lounge chairs</a></div>
+      <div class="fcol"><h4>House</h4><a href="about.html">About us</a><a href="projects.html">Projects</a><a href="features.html">Features</a><a href="about.html#faq">FAQs</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="contact.html">Request a quote</a><a href="mailto:hello@climatecraft.co">hello@climatecraft.co</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>Â© 2026 Climate Craft — Antwerp, Belgium</span><span>Made to order Â· Shipped worldwide</span></div>
+  </div>
+</footer>
+
+<script src="../shared/js/main.js"></script>
+<script>
+const PRODUCTS=[
+  {n:'Meridian',c:'Recliner sofa',op:'motorized',type:'sofa',img:'11.50.28',s:['3 seats','Dual motor','USB-C']},
+  {n:'Halcyon',c:'Glide sofa',op:'manual',type:'sofa',img:'11.46.04',s:['2.5 seats','Hand glide','Swivel']},
+  {n:'Verge',c:'Modular sectional',op:'motorized',type:'modular',img:'11.47.49',s:['5 modules','Powered','Config.']},
+  {n:'Atlas',c:'Lounge chair',op:'manual',type:'chair',img:'11.47.07',s:['1 seat','Rocker','Ottoman']},
+  {n:'Solace',c:'Daybed',op:'motorized',type:'sofa',img:'11.48.37',s:['Adj. back','Single motor']},
+  {n:'Cove',c:'Loveseat',op:'manual',type:'sofa',img:'11.47.24',s:['2 seats','Reclining','Compact']},
+  {n:'Drift',c:'Modular corner',op:'motorized',type:'modular',img:'11.47.32',s:['7 modules','Powered']},
+  {n:'Nero',c:'Wing chair',op:'manual',type:'chair',img:'11.46.57',s:['1 seat','High back']},
+  {n:'Orbit',c:'Swivel chair',op:'motorized',type:'chair',img:'11.50.36',s:['1 seat','Powered lift']},
+  {n:'Linden',c:'Three-seat sofa',op:'motorized',type:'sofa',img:'11.46.13',s:['3 seats','Dual motor']},
+  {n:'Marlowe',c:'Chaise',op:'manual',type:'sofa',img:'11.48.46',s:['Reclining','Left/right']},
+  {n:'Quill',c:'Accent chair',op:'manual',type:'chair',img:'11.49.39',s:['1 seat','Glide']},
+];
+const state={op:'all',type:'all'};
+const grid=document.getElementById('grid'),count=document.getElementById('count');
+function render(){
+  grid.innerHTML='';let shown=0;
+  PRODUCTS.forEach((p,i)=>{
+    const vis=(state.op==='all'||p.op===state.op)&&(state.type==='all'||p.type===state.type);
+    if(!vis)return;shown++;
+    const el=document.createElement('a');el.href='product.html';el.className='pcard rv';el.setAttribute('data-cursor-label','View');
+    el.style.transitionDelay=(Math.min(i,6)*0.05)+'s';
+    el.innerHTML=`<div class="pimg imgrise"><span class="badge ${p.op==='motorized'?'pw':''}">${p.op==='motorized'?'Motorized':'Manual'}</span>
+      <span class="quote-lnk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0e1210" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <img loading="lazy" src="../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%20${p.img}%20AM.jpeg" alt="${p.n}" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pmeta"><h3 class="h4">${p.n}</h3><span class="cat-lbl">${p.c}</span></div>
+      <div class="pspec">${p.s.map(x=>`<span>${x}</span>`).join('')}</div>`;
+    grid.appendChild(el);
+  });
+  count.textContent=shown+(shown===1?' piece':' pieces');
+  requestAnimationFrame(()=>grid.querySelectorAll('.rv').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),30+i*20)));
+}
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+  const f=c.dataset.f;document.querySelectorAll(`.chip[data-f="${f}"]`).forEach(x=>x.classList.remove('on'));
+  c.classList.add('on');state[f]=c.dataset.v;render();
+});
+render();
+</script>
+</body>
+</html>
