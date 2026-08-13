@@ -1,12 +1,5 @@
-﻿/* Climate Craft — shared motion engine: cursor, reveals, parallax, nav, marquee */
+/* Climate Craft — shared motion engine: cursor, reveals, parallax, nav, marquee */
 (function(){
-  const navEntries = performance.getEntriesByType("navigation");
-  if (navEntries.length > 0 && navEntries[0].type === "reload") {
-    if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && window.location.pathname !== '') {
-      window.location.href = "index.html";
-      return;
-    }
-  }
   const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
   /* ---------- custom cursor ---------- */
@@ -101,7 +94,9 @@
   /* ---------- parallax + scroll-progress vars ---------- */
   /* ---------- floating connect button (global) ---------- */
   if(!document.getElementById('connectBtn')){
-    const a=document.createElement('a');a.id='connectBtn';a.href='../client-website/index.html#contact';
+    const a=document.createElement('a');a.id='connectBtn';
+    const isSubdir = location.pathname.includes('/case-studies/');
+    a.href = isSubdir ? '../contact.html' : 'contact.html';
     a.setAttribute('data-cursor-label','Say hello');
     a.innerHTML='<span class="cd"></span><span class="txt">Connect to us</span>';
     document.body.appendChild(a);
@@ -329,13 +324,21 @@
   const dismissPreloader=()=>{
     const pl=document.getElementById('preloader');
     if(pl) {
-      setTimeout(()=>{
-        pl.classList.add('loaded');
+      if(sessionStorage.getItem('cc_visited')){
+        pl.remove();
         document.body.classList.remove('boot-lock');
         document.body.classList.add('boot-complete');
         document.querySelectorAll('.hero .rv, .hero .clip, .hero .imgrise, .hero .lines').forEach(el=>io.observe(el));
-        if(typeof window.triggerPageTransitionEnter === 'function') window.triggerPageTransitionEnter();
-      },600);
+      } else {
+        sessionStorage.setItem('cc_visited','1');
+        setTimeout(()=>{
+          pl.classList.add('loaded');
+          document.body.classList.remove('boot-lock');
+          document.body.classList.add('boot-complete');
+          document.querySelectorAll('.hero .rv, .hero .clip, .hero .imgrise, .hero .lines').forEach(el=>io.observe(el));
+          if(typeof window.triggerPageTransitionEnter === 'function') window.triggerPageTransitionEnter();
+        },600);
+      }
     } else {
       document.body.classList.remove('boot-lock');
       document.querySelectorAll('.hero .rv, .hero .clip, .hero .imgrise, .hero .lines').forEach(el=>io.observe(el));
@@ -346,10 +349,61 @@
   else addEventListener('load',dismissPreloader);
 })();
 
+  /* ---------- inject global video background ---------- */
+  if(!document.getElementById('global-bg-container')){
+    const bgContainer = document.createElement('div');
+    bgContainer.id = 'global-bg-container';
+    const isSubdir = location.pathname.includes('/case-studies/');
+    const videoSrc = isSubdir ? '../shared/media/uploads/refine_the_video.mp4' : 'shared/media/uploads/refine_the_video.mp4';
+    const posterSrc = isSubdir ? '../shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg' : 'shared/media/uploads/WhatsApp%20Image%202026-07-17%20at%2011.50.09%20AM.jpeg';
+    bgContainer.innerHTML = `<video id="global-bg-video" autoplay muted loop playsinline preload="auto" poster="${posterSrc}"><source src="${videoSrc}" type="video/mp4"></video><div class="global-bg-overlay"></div>`;
+    document.body.insertBefore(bgContainer, document.body.firstChild);
+  }
+
+  /* ---------- accordion interactivity ---------- */
+  document.addEventListener('click', e => {
+    const header = e.target.closest('.accordion-header');
+    if (header) {
+      const item = header.closest('.accordion-item');
+      if (item) {
+        const isAlreadyActive = item.classList.contains('active');
+        const parent = item.closest('.accordion');
+        if (parent) {
+          parent.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+        }
+        if (!isAlreadyActive) {
+          item.classList.add('active');
+        }
+      }
+    }
+  });
+
+  /* ---------- case study filter pills ---------- */
+  document.addEventListener('click', e => {
+    const filterBtn = e.target.closest('.cs-filter-btn');
+    if (filterBtn) {
+      const category = filterBtn.dataset.category || 'all';
+      const container = filterBtn.closest('.cs-section') || document;
+      container.querySelectorAll('.cs-filter-btn').forEach(b => b.classList.remove('active'));
+      filterBtn.classList.add('active');
+
+      container.querySelectorAll('.cs-card-item').forEach(card => {
+        const cardCat = card.dataset.category || '';
+        if (category === 'all' || cardCat.toLowerCase().includes(category.toLowerCase())) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  });
+
   /* ---------- inject dynamic animated background globally ---------- */
-  if(!document.querySelector('.collbg')) {
+  if(!document.querySelector('.collbg.fixed')) {
     const cbg = document.createElement('div');
     cbg.className = 'collbg fixed';
+    cbg.setAttribute('aria-hidden', 'true');
     cbg.innerHTML = '<span class="cb cb1"></span><span class="cb cb2"></span><span class="cb cb3"></span>';
     document.body.insertBefore(cbg, document.body.firstChild);
   }
@@ -383,7 +437,8 @@
     const link = e.target.closest('a');
     if(link && link.href && link.host === location.host && link.target !== '_blank'){
       const href = link.getAttribute('href') || '';
-      if(!href.startsWith('#') && !href.startsWith('mailto')) {
+      if(!href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !href.startsWith('javascript:')) {
+        if(link.pathname === location.pathname && link.hash) return;
         e.preventDefault();
         
         pt.style.transition = 'none';
